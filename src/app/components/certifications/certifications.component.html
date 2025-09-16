@@ -1,10 +1,37 @@
 <section class="section" id="certifications">
   <div class="main-container">
-    <h2 class="section-title zoom-out-effect">Certificaciones</h2>
+    <h2 class="section-title zoom-out-effect clickable-title" (click)="toggleView()">
+      Certificaciones
+      <span class="toggle-indicator">{{ showJson ? '{ }' : '🏆' }}</span>
+    </h2>
     <div class="certifications-content">
-      <div class="certifications-container zoom-out-effect">
-        <pre class="certifications-text">{{ certificationData | json }}</pre>
-        <div class="certifications-links">
+      <div class="certifications-container zoom-out-effect" [ngClass]="{'certifications-container-json': showJson, 'certifications-container-organized': !showJson}">
+        <pre *ngIf="showJson" class="certifications-text">{{ certificationData | json }}</pre>
+        <div *ngIf="!showJson" class="certifications-organized">
+          <div class="certifications-grid">
+            <div *ngFor="let cert of certificationData.cursos_y_certificaciones" class="certification-card">
+              <div class="cert-content">
+                <h4 class="cert-title">{{ cert.titulo }}</h4>
+                <p class="cert-institution">{{ cert.institucion }}</p>
+                <a [href]="cert.archivo" 
+                   target="_blank" 
+                   class="cert-link"
+                   *ngIf="cert.archivo !== 'https://uptaivirtual.com/'">
+                  <span>Ver Certificado</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15,3 21,3 21,9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+                <span *ngIf="cert.archivo === 'https://uptaivirtual.com/'" class="cert-info">
+                  Curso presencial
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showJson" class="certifications-links">
           <a *ngFor="let cert of certificationData.cursos_y_certificaciones"
              [href]="cert.archivo"
              target="_blank"

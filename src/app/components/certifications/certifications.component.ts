@@ -9,6 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./certifications.component.scss']
 })
 export class CertificationsComponent implements AfterViewInit {
+  showJson = true;
+
+  toggleView() {
+    this.showJson = !this.showJson;
+  }
   
   ngAfterViewInit() {
     this.initZoomOutEffect();

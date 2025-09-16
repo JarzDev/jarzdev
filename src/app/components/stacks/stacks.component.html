@@ -1,8 +1,89 @@
 <section class="section" id="stacks">
   <div class="main-container">
-    <h2 class="section-title zoom-out-effect">Stack Tecnológico</h2>
-    <div class="json-container zoom-out-effect">
-      <pre class="json-content">{{ stackData | json }}</pre>
+    <h2 class="section-title zoom-out-effect clickable-title" (click)="toggleView()">
+      Stack Tecnológico
+      <span class="toggle-indicator">{{ showJson ? '{ }' : '💻' }}</span>
+    </h2>
+    <div class="json-container zoom-out-effect" [ngClass]="{'json-container-json': showJson, 'json-container-organized': !showJson}">
+      <pre *ngIf="showJson" class="json-content">{{ stackData | json }}</pre>
+      <div *ngIf="!showJson" class="stacks-organized">
+        <div class="stack-category">
+          <h3>Frontend</h3>
+          <div class="tech-group">
+            <h4>Markup & Styling</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tech of stackData.frontEnd.markup_and_styling" class="tech-tag frontend">{{ tech }}</span>
+            </div>
+          </div>
+          <div class="tech-group">
+            <h4>Lenguajes de Programación</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tech of stackData.frontEnd.programming_languages" class="tech-tag frontend">{{ tech }}</span>
+            </div>
+          </div>
+          <div class="tech-group">
+            <h4>Frameworks & Librerías</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tech of stackData.frontEnd.frameworks_and_libraries" class="tech-tag frontend">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3>Backend</h3>
+          <div class="tech-group">
+            <h4>Runtime & Frameworks</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tech of stackData.backEnd.runtime_and_frameworks" class="tech-tag backend">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3>Bases de Datos</h3>
+          <div class="tech-tags">
+            <span *ngFor="let db of stackData.databases" class="tech-tag database">{{ db }}</span>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3>Cloud & Servicios</h3>
+          <div class="tech-group">
+            <h4>Plataformas</h4>
+            <div class="tech-tags">
+              <span *ngFor="let platform of stackData.cloud_and_services.platforms" class="tech-tag cloud">{{ platform }}</span>
+            </div>
+          </div>
+          <div class="tech-group">
+            <h4>Servicios AWS</h4>
+            <div class="tech-tags">
+              <span *ngFor="let aws of stackData.cloud_and_services.aws_services" class="tech-tag aws">{{ aws }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3>DevOps & Herramientas</h3>
+          <div class="tech-group">
+            <h4>Containerización</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tool of stackData.devOps_and_tools.containerization" class="tech-tag devops">{{ tool }}</span>
+            </div>
+          </div>
+          <div class="tech-group">
+            <h4>Control de Versiones</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tool of stackData.devOps_and_tools.version_control" class="tech-tag devops">{{ tool }}</span>
+            </div>
+          </div>
+          <div class="tech-group">
+            <h4>Testing</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tool of stackData.devOps_and_tools.testing" class="tech-tag testing">{{ tool }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section> 

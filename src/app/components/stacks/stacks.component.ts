@@ -9,6 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./stacks.component.scss']
 })
 export class StacksComponent implements AfterViewInit {
+  showJson = true;
+
+  toggleView() {
+    this.showJson = !this.showJson;
+  }
   
   ngAfterViewInit() {
     this.initZoomOutEffect();
