@@ -150,6 +150,22 @@ pre {
   }
 }
 
+/* Efectos de transición para cambio de vista */
+.fade-in-effect {
+  animation: fadeInScale 0.6s ease-out both;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
 /* Efectos de zoom-out con scroll */
 .zoom-out-effect {
   opacity: 1;

@@ -14,8 +14,8 @@ import { CommonModule } from '@angular/common';
         </h2>
         <div class="bio-content">
           <div class="bio-container zoom-out-effect" [ngClass]="{'bio-container-json': showJson, 'bio-container-organized': !showJson}">
-            <pre *ngIf="showJson" class="bio-text">{{ bioData }}</pre>
-            <div *ngIf="!showJson" class="bio-organized">
+            <pre *ngIf="showJson" class="bio-text fade-in-effect">{{ bioData }}</pre>
+            <div *ngIf="!showJson" class="bio-organized fade-in-effect">
               <div class="profile-section">
                 <h3>Perfil Profesional</h3>
                 <p class="description">{{ bioObject.perfil.descripcion }}</p>
@@ -196,6 +196,22 @@ import { CommonModule } from '@angular/common';
     .responsibilities li {
       margin-bottom: 0.5rem;
       color: #555555;
+    }
+
+    /* Efectos de transición para cambio de vista */
+    .fade-in-effect {
+      animation: fadeInScale 0.6s ease-out both;
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+      }
     }
 
     /* Efectos de zoom-out con scroll */

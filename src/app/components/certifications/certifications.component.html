@@ -6,8 +6,8 @@
     </h2>
     <div class="certifications-content">
       <div class="certifications-container zoom-out-effect" [ngClass]="{'certifications-container-json': showJson, 'certifications-container-organized': !showJson}">
-        <pre *ngIf="showJson" class="certifications-text">{{ certificationData | json }}</pre>
-        <div *ngIf="!showJson" class="certifications-organized">
+        <pre *ngIf="showJson" class="certifications-text fade-in-effect">{{ certificationData | json }}</pre>
+        <div *ngIf="!showJson" class="certifications-organized fade-in-effect">
           <div class="certifications-grid">
             <div *ngFor="let cert of certificationData.cursos_y_certificaciones" class="certification-card">
               <div class="cert-content">

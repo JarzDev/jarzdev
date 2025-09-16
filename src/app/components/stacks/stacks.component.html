@@ -5,8 +5,8 @@
       <span class="toggle-indicator">{{ showJson ? '{ }' : '💻' }}</span>
     </h2>
     <div class="json-container zoom-out-effect" [ngClass]="{'json-container-json': showJson, 'json-container-organized': !showJson}">
-      <pre *ngIf="showJson" class="json-content">{{ stackData | json }}</pre>
-      <div *ngIf="!showJson" class="stacks-organized">
+      <pre *ngIf="showJson" class="json-content fade-in-effect">{{ stackData | json }}</pre>
+      <div *ngIf="!showJson" class="stacks-organized fade-in-effect">
         <div class="stack-category">
           <h3>Frontend</h3>
           <div class="tech-group">
