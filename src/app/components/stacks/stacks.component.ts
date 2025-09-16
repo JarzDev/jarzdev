@@ -111,7 +111,7 @@ export class StacksComponent implements AfterViewInit {
     },
     databases: [
       "MongoDB",
-      "MySQL",
+      "SQL",
       "DynamoDB"
     ],
     cloud_and_services: {
@@ -135,8 +135,7 @@ export class StacksComponent implements AfterViewInit {
     devOps_and_tools: {
       containerization: [
         "Docker",
-        "Kubernetes",
-        "Terraform"
+        "Kubernetes"
       ],
       version_control: [
         "Git",
@@ -150,6 +149,9 @@ export class StacksComponent implements AfterViewInit {
         "Karma",
         "Jasmine"
       ]
-    }
+    },
+    infrastructure_as_code: [
+      "Terraform"
+    ]
   };
 } 

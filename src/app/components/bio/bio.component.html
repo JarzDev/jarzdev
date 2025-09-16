@@ -1,0 +1,43 @@
+<section class="section" id="bio">
+  <div class="main-container">
+    <h2 class="section-title zoom-out-effect clickable-title" (click)="toggleView()">
+      Sobre Mí
+      <span class="toggle-indicator">{{ showJson ? '{ }' : '👤' }}</span>
+    </h2>
+    <div class="bio-content">
+      <div class="bio-container zoom-out-effect" [ngClass]="{'bio-container-json': showJson, 'bio-container-organized': !showJson}">
+        <pre *ngIf="showJson" class="bio-text fade-in-effect">{{ bioData }}</pre>
+        <div *ngIf="!showJson" class="bio-organized fade-in-effect">
+          <div class="profile-section">
+            <h3>Perfil Profesional</h3>
+            <p class="description">{{ bioObject.perfil.descripcion }}</p>
+            <p class="specialization">{{ bioObject.perfil.especializacion }}</p>
+          </div>
+          
+          <div class="education-section">
+            <h3>Formación</h3>
+            <p class="degree">{{ bioObject.formacion.titulo }}</p>
+            
+            <h4>Experiencia Laboral</h4>
+            <div *ngFor="let exp of bioObject.formacion.experiencia_laboral" class="experience-item">
+              <div class="job-header">
+                <h5>{{ exp.cargo }}</h5>
+                <span class="company">{{ exp.empresa }}</span>
+                <span class="project" *ngIf="exp.proyecto">- {{ exp.proyecto }}</span>
+                <span class="period">{{ exp.periodo }}</span>
+              </div>
+              <ul class="responsibilities">
+                <li *ngFor="let resp of exp.responsabilidades">{{ resp }}</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="objective-section">
+            <h3>Objetivo</h3>
+            <p>{{ bioObject.objetivo }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -5,250 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-bio',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <section class="section" id="bio">
-      <div class="main-container">
-        <h2 class="section-title zoom-out-effect clickable-title" (click)="toggleView()">
-          Sobre Mí
-          <span class="toggle-indicator">{{ showJson ? '{ }' : '👤' }}</span>
-        </h2>
-        <div class="bio-content">
-          <div class="bio-container zoom-out-effect" [ngClass]="{'bio-container-json': showJson, 'bio-container-organized': !showJson}">
-            <pre *ngIf="showJson" class="bio-text fade-in-effect">{{ bioData }}</pre>
-            <div *ngIf="!showJson" class="bio-organized fade-in-effect">
-              <div class="profile-section">
-                <h3>Perfil Profesional</h3>
-                <p class="description">{{ bioObject.perfil.descripcion }}</p>
-                <p class="specialization">{{ bioObject.perfil.especializacion }}</p>
-              </div>
-              
-              <div class="education-section">
-                <h3>Formación</h3>
-                <p class="degree">{{ bioObject.formacion.titulo }}</p>
-                
-                <h4>Experiencia Laboral</h4>
-                <div *ngFor="let exp of bioObject.formacion.experiencia_laboral" class="experience-item">
-                  <div class="job-header">
-                    <h5>{{ exp.cargo }}</h5>
-                    <span class="company">{{ exp.empresa }}</span>
-                    <span class="project" *ngIf="exp.proyecto">- {{ exp.proyecto }}</span>
-                    <span class="period">{{ exp.periodo }}</span>
-                  </div>
-                  <ul class="responsibilities">
-                    <li *ngFor="let resp of exp.responsabilidades">{{ resp }}</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="objective-section">
-                <h3>Objetivo</h3>
-                <p>{{ bioObject.objetivo }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  `,
-  styles: [`
-    .section {
-      padding: 5rem 0;
-    }
-
-    .main-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      color: var(--primary-color);
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-
-    .bio-content {
-      display: flex;
-      justify-content: center;
-    }
-
-    .bio-container {
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      overflow-x: auto;
-      width: 100%;
-    }
-
-    .bio-container-json {
-      background-color: #1e1e1e;
-    }
-
-    .bio-container-organized {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
-    }
-
-    .bio-text {
-      margin: 0;
-      color: #d4d4d4;
-      font-family: 'Fira Code', 'Consolas', monospace;
-      font-size: 1rem;
-      line-height: 1.5;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-
-    .clickable-title {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .clickable-title:hover {
-      color: #007bff;
-    }
-
-    .toggle-indicator {
-      font-size: 1.5rem;
-      opacity: 0.7;
-    }
-
-    .bio-organized {
-      color: #333333;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-    }
-
-    .profile-section, .education-section, .objective-section {
-      margin-bottom: 2rem;
-    }
-
-    .bio-organized h3 {
-      color: #007bff;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #007bff;
-      padding-bottom: 0.5rem;
-    }
-
-    .bio-organized h4 {
-      color: #0056b3;
-      font-size: 1.2rem;
-      margin: 1.5rem 0 1rem 0;
-    }
-
-    .bio-organized h5 {
-      color: #007bff;
-      font-size: 1.1rem;
-      margin: 0 0 0.5rem 0;
-    }
-
-    .description, .specialization {
-      margin-bottom: 1rem;
-      text-align: justify;
-      color: #555555;
-    }
-
-    .degree {
-      font-weight: bold;
-      color: #0056b3;
-      margin-bottom: 1.5rem;
-    }
-
-    .experience-item {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: rgba(0, 123, 255, 0.08);
-      border-radius: 8px;
-      border-left: 4px solid #007bff;
-    }
-
-    .job-header {
-      margin-bottom: 1rem;
-    }
-
-    .company {
-      color: #0056b3;
-      font-weight: bold;
-      margin-left: 0.5rem;
-    }
-
-    .project {
-      color: #6f42c1;
-      font-style: italic;
-    }
-
-    .period {
-      color: #007bff;
-      font-size: 0.9rem;
-      float: right;
-    }
-
-    .responsibilities {
-      margin: 0;
-      padding-left: 1.5rem;
-    }
-
-    .responsibilities li {
-      margin-bottom: 0.5rem;
-      color: #555555;
-    }
-
-    /* Efectos de transición para cambio de vista */
-    .fade-in-effect {
-      animation: fadeInScale 0.6s ease-out both;
-    }
-
-    @keyframes fadeInScale {
-      0% {
-        opacity: 0;
-        transform: scale(0.95) translateY(10px);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) translateY(0px);
-      }
-    }
-
-    /* Efectos de zoom-out con scroll */
-    .zoom-out-effect {
-      opacity: 1;
-      transform: scale(1) translateY(0px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-      animation: initialSectionAppear 0.8s ease-out 0.3s both;
-    }
-
-    .zoom-out-effect.zoom-out {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-
-    /* Animación inicial para las secciones */
-    @keyframes initialSectionAppear {
-      0% {
-        opacity: 0;
-        transform: scale(1.15) translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) translateY(0px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .bio-container {
-        padding: 1rem;
-      }
-
-      .bio-text {
-        font-size: 0.9rem;
-      }
-    }
-  `]
+  templateUrl: './bio.component.html',
+  styleUrls: ['./bio.component.scss']
 })
 export class BioComponent implements AfterViewInit {
   showJson = true;
@@ -345,7 +103,7 @@ export class BioComponent implements AfterViewInit {
           responsabilidades: [
             "Administración de plataforma Marketing Cloud Personalization de Salesforce (gestión de usuarios, segmentos, campañas, atributos, cargas sftp)",
             "Desarrollo para cargas vía API, KPI desde DWH, sitemap",
-            "Implementación de solución en AWS con Front en Angular y back en Node.js",
+            "Implementación de solución en AWS con Front en Angular y back en Node.js, Lambdas, Colas entre otros",
             "Tecnologías AWS: EKS, Lambdas, Glue, SQS, RDS MySQL, Cognito"
           ]
         },
@@ -356,8 +114,8 @@ export class BioComponent implements AfterViewInit {
           periodo: "Agosto 2023 - Diciembre 2023",
           responsabilidades: [
             "Desarrollo Full Stack en AWS con Framework Serverless",
-            "Backend en Node.js y Frontend en Angular",
-            "Implementación de autenticación con Cognito y DynamoDB",
+            "Backend en Node.js en Aws Lambda y Frontend en Angular",
+            "Implementación de autenticación con Cognito y DynamoDB en DB",
             "Infraestructura como código con Terraform",
             "Pipelines en CodeBuild"
           ]
@@ -391,11 +149,12 @@ export class BioComponent implements AfterViewInit {
           empresa: "Cadegroup",
           periodo: "Noviembre 2018 - Abril 2020",
           responsabilidades: [
-            "Desarrollo frontend en Angular con TypeScript",
+            "Desarrollo frontend en Angular",
             "Desarrollo de aplicación móvil con Ionic",
-            "Backend en Node.js con TypeScript",
-            "Instalación de RIPs para plotters e impresoras",
-            "Implementación de soluciones en AWS y Azure"
+            "Backend en Node.js",
+            "Bases de datos SQL",
+            "Implementación de soluciones en AWS y Azure",
+            "Instalación de RIPs para plotters e impresoras"
           ]
         },
         {
@@ -404,7 +163,7 @@ export class BioComponent implements AfterViewInit {
           periodo: "Octubre 2017 - Octubre 2018",
           responsabilidades: [
             "Desarrollo web con HTML5, CSS (Bootstrap) y JavaScript",
-            "Gestión de hosting y páginas web",
+            "Gestión de hosting, páginas web y correo electrónico",
             "Implementación de sistema de búsqueda e impresión",
             "Configuración de impresoras en red y SafeQ",
             "Soporte técnico y mantenimiento de sistemas"
