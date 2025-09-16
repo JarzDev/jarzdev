@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100%; 
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+/* Prevenir desbordamiento horizontal en mobile */
+* {
+  box-sizing: border-box;
+}
+
+/* Asegurar que el viewport se mantenga correcto en mobile */
+@media (max-width: 768px) {
+  html, body {
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+  
+  .toolbar {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+  }
+
+  /* Forzar que todo el contenido ocupe el ancho completo */
+  app-root {
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+
+  /* Asegurar que las secciones ocupen todo el ancho */
+  section {
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+
+  /* Asegurar que los efectos de GSAP funcionen correctamente */
+  .section-title, .bio-container, .json-container, .certifications-container, .contact-grid {
+    transform-origin: center center;
+    will-change: transform, opacity;
+  }
+}
+
+/* Estilos específicos para cuando se hace zoom en mobile */
+@media (max-width: 768px) and (min-resolution: 2dppx) {
+  html, body {
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+}

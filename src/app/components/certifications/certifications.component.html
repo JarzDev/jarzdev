@@ -1,0 +1,19 @@
+<section class="section" id="certifications">
+  <div class="main-container">
+    <h2 class="section-title zoom-out-effect">Certificaciones</h2>
+    <div class="certifications-content">
+      <div class="certifications-container zoom-out-effect">
+        <pre class="certifications-text">{{ certificationData | json }}</pre>
+        <div class="certifications-links">
+          <a *ngFor="let cert of certificationData.cursos_y_certificaciones"
+             [href]="cert.archivo"
+             target="_blank"
+             class="certification-link">
+            <span class="certification-title">{{ cert.titulo }}</span>
+            <span class="certification-institution">{{ cert.institucion }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

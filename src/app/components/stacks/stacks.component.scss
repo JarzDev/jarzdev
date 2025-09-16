@@ -1,0 +1,73 @@
+.section {
+  padding: 5rem 0;
+  background-color: var(--background-color);
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.json-container {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.json-content {
+  margin: 0;
+  color: #d4d4d4;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Efectos de zoom-out con scroll */
+.zoom-out-effect {
+  opacity: 1;
+  transform: scale(1) translateY(0px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  animation: initialSectionAppear 0.8s ease-out 0.3s both;
+}
+
+.zoom-out-effect.zoom-out {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Animación inicial para las secciones */
+@keyframes initialSectionAppear {
+  0% {
+    opacity: 0;
+    transform: scale(1.15) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+@media (max-width: 768px) {
+  .json-container {
+    padding: 1rem;
+  }
+
+  .json-content {
+    font-size: 0.9rem;
+  }
+} 

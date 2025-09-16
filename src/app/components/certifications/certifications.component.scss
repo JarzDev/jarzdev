@@ -1,0 +1,116 @@
+.section {
+  padding: 5rem 0;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.certifications-content {
+  display: flex;
+  justify-content: center;
+}
+
+.certifications-container {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  width: 100%;
+}
+
+.certifications-text {
+  margin: 0;
+  color: #d4d4d4;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-bottom: 2rem;
+}
+
+.certifications-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.certification-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #d4d4d4;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.certification-title {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.certification-institution {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Efectos de zoom-out con scroll */
+.zoom-out-effect {
+  opacity: 1;
+  transform: scale(1) translateY(0px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  animation: initialSectionAppear 0.8s ease-out 0.3s both;
+}
+
+.zoom-out-effect.zoom-out {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Animación inicial para las secciones */
+@keyframes initialSectionAppear {
+  0% {
+    opacity: 0;
+    transform: scale(1.15) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+@media (max-width: 768px) {
+  .certifications-container {
+    padding: 1rem;
+  }
+
+  .certifications-text {
+    font-size: 0.9rem;
+  }
+
+  .certification-link {
+    padding: 1rem;
+  }
+} 
