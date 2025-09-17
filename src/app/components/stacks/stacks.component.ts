@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./stacks.component.scss']
 })
 export class StacksComponent implements AfterViewInit {
-  showJson = true;
+  showJson = false;
 
   toggleView() {
     this.showJson = !this.showJson;
@@ -142,6 +142,9 @@ export class StacksComponent implements AfterViewInit {
         "GitHub",
         "GitLab"
       ],
+      infrastructure_as_code: [
+        "Terraform"
+      ],
       testing: [
         "Postman",
         "Mockito",
@@ -149,9 +152,6 @@ export class StacksComponent implements AfterViewInit {
         "Karma",
         "Jasmine"
       ]
-    },
-    infrastructure_as_code: [
-      "Terraform"
-    ]
+    }
   };
 } 

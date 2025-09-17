@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./certifications.component.scss']
 })
 export class CertificationsComponent implements AfterViewInit {
-  showJson = true;
+  showJson = false;
 
   toggleView() {
     this.showJson = !this.showJson;

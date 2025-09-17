@@ -1,9 +1,13 @@
 <section class="section" id="stacks">
   <div class="main-container">
-    <h2 class="section-title zoom-out-effect clickable-title" (click)="toggleView()">
+    <h2 class="section-title zoom-out-effect">
       Stack Tecnológico
-      <span class="toggle-indicator">{{ showJson ? '{ }' : '💻' }}</span>
     </h2>
+    <div class="mode-toggle-container">
+      <button class="mode-toggle-btn" (click)="toggleView()">
+        {{ showJson ? 'Client Mode' : 'JSON Mode' }}
+      </button>
+    </div>
     <div class="json-container zoom-out-effect" [ngClass]="{'json-container-json': showJson, 'json-container-organized': !showJson}">
       <pre *ngIf="showJson" class="json-content fade-in-effect">{{ stackData | json }}</pre>
       <div *ngIf="!showJson" class="stacks-organized fade-in-effect">
@@ -77,17 +81,16 @@
             </div>
           </div>
           <div class="tech-group">
+            <h4>Infraestructura como Código</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tool of stackData.devOps_and_tools.infrastructure_as_code" class="tech-tag">{{ tool }}</span>
+            </div>
+          </div>
+          <div class="tech-group">
             <h4>Testing</h4>
             <div class="tech-tags">
               <span *ngFor="let tool of stackData.devOps_and_tools.testing" class="tech-tag">{{ tool }}</span>
             </div>
-          </div>
-        </div>
-
-        <div class="stack-category">
-          <h3>Infraestructura como Código</h3>
-          <div class="tech-tags">
-            <span *ngFor="let tool of stackData.infrastructure_as_code" class="tech-tag">{{ tool }}</span>
           </div>
         </div>
       </div>

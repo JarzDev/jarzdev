@@ -1,9 +1,13 @@
 <section class="section" id="bio">
   <div class="main-container">
-    <h2 class="section-title zoom-out-effect clickable-title" (click)="toggleView()">
+    <h2 class="section-title zoom-out-effect">
       Sobre Mí
-      <span class="toggle-indicator">{{ showJson ? '{ }' : '👤' }}</span>
     </h2>
+    <div class="mode-toggle-container">
+      <button class="mode-toggle-btn" (click)="toggleView()">
+        {{ showJson ? 'Client Mode' : 'JSON Mode' }}
+      </button>
+    </div>
     <div class="bio-content">
       <div class="bio-container zoom-out-effect" [ngClass]="{'bio-container-json': showJson, 'bio-container-organized': !showJson}">
         <pre *ngIf="showJson" class="bio-text fade-in-effect">{{ bioData }}</pre>

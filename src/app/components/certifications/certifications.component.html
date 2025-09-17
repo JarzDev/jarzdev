@@ -1,9 +1,13 @@
 <section class="section" id="certifications">
   <div class="main-container">
-    <h2 class="section-title zoom-out-effect clickable-title" (click)="toggleView()">
+    <h2 class="section-title zoom-out-effect">
       Certificaciones
-      <span class="toggle-indicator">{{ showJson ? '{ }' : '🏆' }}</span>
     </h2>
+    <div class="mode-toggle-container">
+      <button class="mode-toggle-btn" (click)="toggleView()">
+        {{ showJson ? 'Client Mode' : 'JSON Mode' }}
+      </button>
+    </div>
     <div class="certifications-content">
       <div class="certifications-container zoom-out-effect" [ngClass]="{'certifications-container-json': showJson, 'certifications-container-organized': !showJson}">
         <pre *ngIf="showJson" class="certifications-text fade-in-effect">{{ certificationData | json }}</pre>

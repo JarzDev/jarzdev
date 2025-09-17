@@ -1,6 +1,9 @@
+:host {
+  display: block;
+}
+
 .section {
   padding: 5rem 0;
-  background-color: var(--background-color);
 }
 
 .main-container {
@@ -14,6 +17,10 @@
   color: var(--primary-color);
   margin-bottom: 3rem;
   text-align: center;
+}
+
+.contact-section {
+  background-color: var(--background-color);
 }
 
 .mode-toggle-container {
@@ -63,87 +70,100 @@
   }
 }
 
-.json-container {
+.contact-content {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-container {
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
+  width: 100%;
 }
 
-.json-container-json {
+.contact-container-json {
   background-color: #1e1e1e;
 }
 
-.json-container-organized {
+.contact-container-organized {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
 }
 
-.json-content {
+.contact-text {
   margin: 0;
   color: #d4d4d4;
   font-family: 'Fira Code', 'Consolas', monospace;
   font-size: 1rem;
   line-height: 1.5;
-}
-
-pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-.stacks-organized {
+.contact-organized {
   color: #333333;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.stack-category {
-  margin-bottom: 2.5rem;
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.contact-item {
   padding: 1.5rem;
   background: rgba(0, 123, 255, 0.08);
+  border: 1px solid rgba(0, 123, 255, 0.2);
   border-radius: 12px;
-  border-left: 4px solid #007bff;
-
-  h3 {
-    color: #007bff;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 0.5rem;
-  }
-}
-
-.tech-group {
-  margin-bottom: 1.5rem;
-
-  h4 {
-    color: #0056b3;
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-  }
-}
-
-.tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tech-tag {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  cursor: default;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  text-decoration: none;
+  color: #333333;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+  }
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+    border-color: rgba(0, 123, 255, 0.4);
+    background: rgba(0, 123, 255, 0.12);
   }
+}
+
+.contact-item i {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.contact-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #0056b3;
+  font-weight: 600;
+}
+
+.contact-item p {
+  font-size: 0.9rem;
+  color: #555555;
+  word-break: break-all;
+  margin: 0;
 }
 
 /* Efectos de transición para cambio de vista */
@@ -187,12 +207,59 @@ pre {
   }
 }
 
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .json-container {
+  .main-container {
     padding: 1rem;
   }
 
-  .json-content {
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    padding: 1.5rem;
+  }
+
+  .contact-item i {
+    font-size: 1.8rem;
+  }
+
+  .contact-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .contact-item p {
+    font-size: 0.85rem;
+  }
+
+  .contact-container {
+    padding: 1rem;
+  }
+
+  .contact-text {
     font-size: 0.9rem;
   }
-} 
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 0.5rem;
+  }
+
+  .contact-item {
+    padding: 1rem;
+  }
+}

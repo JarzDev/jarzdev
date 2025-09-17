@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./bio.component.scss']
 })
 export class BioComponent implements AfterViewInit {
-  showJson = true;
+  showJson = false;
   bioObject: any;
 
   constructor() {
