@@ -1,59 +1,173 @@
-# Jarzdev
+# 💼 JarzDev - Portfolio Personal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+> Landing page profesional de José Alberto Ramírez Zambrano, Full Stack Developer con más de 10 años de experiencia en tecnologías de la información.
 
-## Development server
+![Angular](https://img.shields.io/badge/Angular-19.2.0-red.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)
+![GSAP](https://img.shields.io/badge/GSAP-Animations-green.svg)
+![SCSS](https://img.shields.io/badge/SCSS-Styling-pink.svg)
 
-To start a local development server, run:
+## 🌟 Características Principales
 
+### 🎨 **Diseño Moderno y Responsivo**
+- Interfaz elegante con efectos de scroll suaves usando GSAP
+- Animaciones de entrada y transiciones fluidas
+- Diseño completamente responsivo para todos los dispositivos
+- Esquema de colores profesional en tonos azules
+
+### 🔄 **Modo Dual: Client Mode & JSON Mode**
+Cada sección incluye un botón toggle que permite alternar entre:
+- **Client Mode**: Vista organizada y elegante para usuarios finales
+- **JSON Mode**: Vista técnica con datos estructurados para desarrolladores
+
+### 📱 **Secciones Interactivas**
+
+#### 🧑 **Sobre Mí**
+- **Client Mode**: Información personal y experiencia laboral organizada visualmente
+- **JSON Mode**: Datos completos de perfil profesional, formación y experiencia detallada
+- Más de 10 años de experiencia en desarrollo Full Stack
+- Historial completo de empresas: TCS, Emergya, Agile Networks, Smart Graphics, Cadegroup, Kerbe
+
+#### 💻 **Stack Tecnológico**
+- **Client Mode**: Pills organizados por categorías con colores distintivos
+- **JSON Mode**: Estructura completa de tecnologías por área
+- **Categorías**:
+  - Frontend: HTML5, CSS, JavaScript, TypeScript, React, Angular
+  - Backend: Node.js, Express, Django, Spring Boot
+  - Bases de Datos: MongoDB, SQL, DynamoDB
+  - Cloud: AWS Services, Firebase, Salesforce MCP
+  - DevOps: Docker, Kubernetes, Terraform, Git, Testing tools
+
+#### 🏆 **Certificaciones**
+- **Client Mode**: Tarjetas elegantes con enlaces directos a certificados
+- **JSON Mode**: Información detallada de cada certificación
+- 14+ certificaciones profesionales en tecnologías actuales
+- Enlaces directos a certificados en PDF
+- Instituciones: Udemy, Amazon AWS, Salesforce, Universidad de Chile
+
+#### 📧 **Contacto**
+- **Client Mode**: Tarjetas interactivas con información de contacto
+- **JSON Mode**: Datos estructurados con horarios, especialidades y detalles
+- Enlaces directos: Email, Teléfono, LinkedIn, GitHub
+- Información de disponibilidad y horarios de atención
+
+## 🚀 **Tecnologías Utilizadas**
+
+### Frontend
+- **Angular 19.2.0** - Framework principal
+- **TypeScript** - Lenguaje de programación
+- **SCSS** - Preprocesador CSS
+- **GSAP** - Animaciones avanzadas
+- **FontAwesome** - Iconografía
+
+### Arquitectura
+- **Componentes Standalone** - Arquitectura modular
+- **Responsive Design** - Mobile-first approach
+- **Lazy Loading** - Carga optimizada de recursos
+- **SEO Optimizado** - Meta tags y estructura semántica
+
+## 🛠️ **Instalación y Desarrollo**
+
+### Prerrequisitos
+- Node.js (v18 o superior)
+- npm o pnpm
+- Angular CLI
+
+### Instalación
 ```bash
+# Clonar el repositorio
+git clone https://github.com/jarzdev/portfolio.git
+cd portfolio
+
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Scripts Disponibles
 ```bash
-ng generate component component-name
+# Desarrollo
+ng serve                    # Puerto 4200
+
+# Construcción
+ng build                    # Build de producción
+ng build --configuration=development  # Build de desarrollo
+
+# Testing
+ng test                     # Tests unitarios
+ng e2e                      # Tests end-to-end
+
+# Linting
+ng lint                     # Verificar código
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📁 **Estructura del Proyecto**
 
-```bash
-ng generate --help
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── bio/           # Sección "Sobre Mí"
+│   │   ├── stacks/        # Stack Tecnológico
+│   │   ├── certifications/# Certificaciones
+│   │   ├── contact/       # Información de contacto
+│   │   └── toolbar/       # Barra de navegación
+│   ├── app.component.*    # Componente principal
+│   └── app.config.ts      # Configuración de la app
+├── assets/
+│   ├── certificates/      # PDFs de certificaciones
+│   ├── images/           # Imágenes del perfil
+│   └── icons/            # Iconos personalizados
+└── styles.scss           # Estilos globales
 ```
 
-## Building
+## 🎯 **Características Técnicas**
 
-To build the project run:
+### Animaciones GSAP
+- Efectos de scroll con ScrollTrigger
+- Animaciones de entrada suaves
+- Transiciones entre modos (JSON/Client)
+- Efectos de zoom y fade personalizados
 
+### Responsive Design
+- **Desktop**: Grid completo y efectos avanzados
+- **Tablet**: Layout adaptado con 2 columnas
+- **Mobile**: Vista de una columna optimizada
+- **Breakpoints**: 1024px, 768px, 480px
+
+### Performance
+- Lazy loading de GSAP
+- Componentes standalone
+- Optimización de imágenes
+- CSS optimizado con SCSS
+
+## 🌐 **Deploy y Producción**
+
+### Build de Producción
 ```bash
-ng build
+ng build --configuration=production
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Optimizaciones Incluidas
+- Tree shaking automático
+- Minificación de CSS/JS
+- Optimización de imágenes
+- Service Worker ready
 
-## Running unit tests
+## 📞 **Contacto**
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+**José Alberto Ramírez Zambrano**
+- 📧 Email: [jarzdev@gmail.com](mailto:jarzdev@gmail.com)
+- 📱 Teléfono: [+56954927928](tel:+56954927928)
+- 💼 LinkedIn: [jose-alberto-ramirez-zambrano](https://linkedin.com/in/jose-alberto-ramirez-zambrano-7524411aa/)
+- 🐱 GitHub: [jarzdev](https://github.com/jarzdev)
 
-```bash
-ng test
-```
+## 📄 **Licencia**
 
-## Running end-to-end tests
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**⭐ Si te gusta este proyecto, no olvides darle una estrella!**
